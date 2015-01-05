@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'AZObjectToDic', :exclusive => true do
+  pod "AZObjectToDic", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "AZObjectToDic", :path => "../"
+
+  pod 'Kiwi'
+end
