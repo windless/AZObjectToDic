@@ -10,18 +10,18 @@
 Pod::Spec.new do |s|
   s.name             = "AZObjectToDic"
   s.version          = "0.1.0"
-  s.summary          = "A short description of AZObjectToDic."
-  s.description      = <<-DESC
-                       An optional longer description of AZObjectToDic
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
-                       DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/AZObjectToDic"
+  s.summary          = "Conver NSObject to Dictionary"
+  # s.description      = <<-DESC
+  #                      An optional longer description of AZObjectToDic
+  #
+  #                      * Markdown format.
+  #                      * Don't worry about the indent, we strip it!
+  #                      DESC
+  s.homepage         = "https://github.com/windless/AZObjectToDic"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Abner Zhong" => "windlessg@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/AZObjectToDic.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/windless/AZObjectToDic.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '7.0'

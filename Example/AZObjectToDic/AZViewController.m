@@ -7,6 +7,7 @@
 //
 
 #import "AZViewController.h"
+#import "NSObject+ToDic.h"
 
 @interface AZViewController ()
 
@@ -14,16 +15,15 @@
 
 @implementation AZViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  NSObject *object = [[NSObject alloc] init];
+  // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)didReceiveMemoryWarning {
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
 }
 
 @end

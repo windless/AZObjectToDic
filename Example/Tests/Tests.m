@@ -6,37 +6,75 @@
 //  Copyright (c) 2014 Abner Zhong. All rights reserved.
 //
 
-SPEC_BEGIN(InitialTests)
+#import <NSObject+ToDic.h>
+#import "AZFakePerson.h"
+#import "AZFakeRoom.h"
+#import "AZFakeCar.h"
 
-describe(@"My initial tests", ^{
+SPEC_BEGIN(ToDic)
 
-  context(@"will fail", ^{
+  describe(@"NSObject", ^{
+    it(@"toDic returns right dic", ^{
+      AZFakePerson *person = [[AZFakePerson alloc] init];
+      person.name = @"Windless";
+      person.age = 27;
+      person.isMale = YES;
 
-      it(@"can do maths", ^{
-          [[@1 should] equal:@2];
+      NSDictionary *dic = @{
+          @"name" : @"Windless",
+          @"age" : @27,
+          @"isMale" : @YES
+      };
+      [[[person toDic] should] equal:dic];
+    });
+
+    describe(@"FakeRoom", ^{
+      it(@"returns right dic", ^{
+        AZFakeRoom *room = [[AZFakeRoom alloc] init];
+        room.address = @"road 1";
+        room.roomNumber = 123;
+
+        AZFakePerson *person = [[AZFakePerson alloc] init];
+        person.name = @"Windless";
+        person.age = 27;
+        person.isMale = YES;
+
+        AZFakeCar *car = [[AZFakeCar alloc] init];
+        car.type = @"Mini";
+        car.gas = 13.333;
+        person.car = car;
+
+        room.people = @[person, person];
+
+        NSDictionary *dic = @{
+            @"address" : @"road 1",
+            @"rooNumber" : @123,
+            @"people" : @[
+                @{
+                    @"name" : @"Windless",
+                    @"age" : @27,
+                    @"isMale" : @YES,
+                    @"car" : @{
+                    @"type" : @"Mini",
+                    @"gas" : @13.333
+                }
+                },
+                @{
+                    @"name" : @"Windless",
+                    @"age" : @27,
+                    @"isMale" : @YES,
+                    @"car" : @{
+                    @"type" : @"Mini",
+                    @"gas" : @13.333
+                }
+                },
+            ],
+            @"host" : @""
+        };
+
+        [[[room toDic] should] equal:dic];
       });
-
-      it(@"can read", ^{
-          [[@"number" should] equal:@"string"];
-      });
-    
-      it(@"will wait and fail", ^{
-          NSObject *object = [[NSObject alloc] init];
-          [[expectFutureValue(object) shouldEventually] receive:@selector(autoContentAccessingProxy)];
-      });
+    });
   });
-
-  context(@"will pass", ^{
-    
-      it(@"can do maths", ^{
-        [[@1 should] beLessThan:@23];
-      });
-    
-      it(@"can read", ^{
-          [[@"team" shouldNot] containString:@"I"];
-      });  
-  });
-  
-});
 
 SPEC_END
